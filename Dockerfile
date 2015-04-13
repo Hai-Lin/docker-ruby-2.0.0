@@ -26,6 +26,9 @@ RUN apt-get update \
 	&& make install \
 	&& rm -r /usr/src/ruby
 
+#Install node for javascript runtime
+RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 # skip installing gem documentation
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
 
